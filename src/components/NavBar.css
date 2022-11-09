@@ -1,0 +1,41 @@
+
+ .container{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  };
+  
+  .navbar-principal{
+    display: flex;
+    padding: 5px;
+  }
+
+.list-nav{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background-color: #FFF;
+}
+
+.li{
+  list-style: none;
+  padding: 10px;
+}
+
+.li :hover{
+  transition: .5s;
+  color: #FFF;
+  box-shadow: 4px 4px 4px #CCC;
+  background-color: #CCC;
+}
+
+.li a{
+	text-decoration: none;
+  margin-bottom: 10px;
+  font-size: larger;
+  color: #9799A6;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #9799A6;
+};
+
