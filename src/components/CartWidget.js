@@ -1,8 +1,15 @@
+ import "./NavBar.css";
+
 function CartWidget() {
     return(
-        <button>
-            <p>Aqui va la imagen</p>
-        </button>
+        <div className="container">
+            <div className="active-icon">
+            <button className="button-cart">
+            <ion-icon name="cart-outline"></ion-icon>
+            <p>4</p>
+            </button>
+        </div>
+        </div>
     );
 };
 

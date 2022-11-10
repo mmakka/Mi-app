@@ -1,6 +1,6 @@
 import "./NavBar.css"
 import CartWidget from "./CartWidget";
- 
+
 function NavBar() {
     return (
         <div className="container">
@@ -10,10 +10,10 @@ function NavBar() {
                     <li className="li"><a href="" >Productos</a></li>
                     <li className="li"><a href="" >Nosotros</a></li>
                     <li className="li"><a href="" >Contactanos</a></li>
+                    <li className="li"><CartWidget /></li>
                 </ul>
-                <CartWidget />
+                <h1 className="titulo-principal">Alma Cosmetics</h1>
             </nav>
-            <h1>Alma Mora</h1>
         </div>
     );
 }
