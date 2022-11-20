@@ -3,7 +3,7 @@ import CartWidget from "./CartWidget";
 
 function NavBar() {
     return (
-        <div className="container">
+        <div className="container-fluid">
             <nav className="navbar-principal">
                 <ul className="list-nav">
                     <li className="li"><a href="" >Inicio</a></li>
@@ -15,7 +15,8 @@ function NavBar() {
                 <h1 className="titulo-principal">Alma Cosmetics</h1>
             </nav>
         </div>
-    );
-}
+    ); 
+    
+};
 
 export default NavBar;

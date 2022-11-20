@@ -6,9 +6,8 @@
   };
   
   .navbar-principal{
-    display: flex;
     padding: 5px;
-    justify-content: end;
+    display: flex;
   }
 
   .titulo-principal{
@@ -21,13 +20,16 @@
 
   .list-nav{
   display: flex;
-  align-items: center;
   background-color: #FFF;
+  justify-content: space-between;
 }
 
 .li{
+  display: flex;
+  justify-content: space-evenly;
   list-style: none;
   padding: 10px;
+  border: none;
 }
 
 .li :hover{
