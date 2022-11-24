@@ -1,19 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
-import ItemsListContainer from "./components/ItemsListContainer";
-import NavBar from './components/NavBar';
-import {FontAwesonmeIcon} from "@fortawesome/react-fontawesome";
-import faBell from "@fortawesome/free-solid-svg-icons";
+import Navbar from "./components/Navbar/NavBar";
+import ItemsListContainer from './components/ItemsListContainer';
+
+
 
 function App() {
   return ( 
     <div className = "App" >
-        <header>
-            <NavBar />
+       <header>
+            <Navbar/>
      </header>
       <main>
-          <ItemsListContainer greeting={"Bienvenidos"} />
+          <ItemsListContainer/>
       </main>
+      <footer>
+      </footer>
+      
       </div>
   );
 }
