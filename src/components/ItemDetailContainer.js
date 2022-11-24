@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import{Items as itemMock} from "../mocks/Items.mocks";
+import{Items as itemMock} from "./mocks/Items.mocks";
 
 const ItemDetailConteiner = () => {
     const [item, setItem]= useState(null);

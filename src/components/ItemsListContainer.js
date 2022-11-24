@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import{Items} from "../mocks/Items.mocks"
+import{Items} from "./mocks/Items.mocks"
 import ItemList from "./ItemList";
 
 
@@ -12,7 +12,7 @@ import ItemList from "./ItemList";
     new Promise((resolve) =>
     setTimeout(() => {
       resolve(Items);
-    }, 3000)
+    }, 2000)
     ).then((data) => setProductos(data));
   }, []);
     

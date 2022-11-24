@@ -64,3 +64,7 @@
   border: 1px solid #9799A6;
   background-color: #FFF;
 }
+
+.active-icon > ion-icon{
+  font-size: 100px;
+}
