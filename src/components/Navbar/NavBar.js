@@ -12,7 +12,7 @@ function NavBar() {
                     <li className="li"><a href="" >Contactanos</a></li>
                     <li className="li"><CartWidget /></li>
                 </ul>
-                <h1 className="titulo-principal">Alma Cosmetics</h1>
+                <h1 className="titulo-principal text-center">Alma Store</h1>
             </nav>
         </div>
     ); 

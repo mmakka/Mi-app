@@ -1,10 +1,11 @@
 import { children } from "react";
+import NavBar from "./Navbar/NavBar";
 
-export const Layout = () =>{
+export const Layout = ({children}) =>{
     return(
-        <header>
+        <main>
             <NavBar/>
             {children}
-     </header>
+     </main>
     );
 };
