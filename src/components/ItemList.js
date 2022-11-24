@@ -4,7 +4,7 @@ const ItemList = ({ productos }) => {
   return (
     <ul className="flex items-center justify-center">
       {productos.map((producto) => (
-        <Item producto={producto} />
+        <Item key={producto}/>
       ))}
     </ul>
   );

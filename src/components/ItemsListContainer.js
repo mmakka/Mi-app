@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import ItemList from "./ItemList";
 
 const productos = [
@@ -23,14 +23,15 @@ const productos = [
     const productosList = new Promise((resolve) =>
       setTimeout(() => {
         resolve(productos);
-      }, 3000)
-    );
-  
-    productosList.then((data) => setProductos(data));
+      }, 3000));
+   
+    useEffect(() => {
+        productosList.then((data) => setProductos(data));
+      }, [])
   
     if (productos.length === 0) {
       return <p>Loading...</p>;
-    }
+    } 
   
     return (
       <div className="card">
