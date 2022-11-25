@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import{Items as itemMock} from "./mocks/Items.mocks";
+import{Items} from "./mocks/Items.mocks";
+import { useParams } from "react-router-dom";
 
 const ItemDetailConteiner = () => {
     const [item, setItem]= useState(null);
+    const {id} = useParams();
 
     useEffect(() => {
         new Promise((resolve) =>
-        setTimeout(() =>
-         resolve(itemMock[0]),2000))
-        .then((data) => setItem(data));
+
+        setTimeout(() =>{
+        const itemFilter= Items.find((item)=>item.id == id);
+         resolve(itemFilter);
+        },1000))
         
-      }, []);
-      if (!item){
+        .then((data) => setItem(data));
+      }, [id]);
+
+      if (!item) {
         return<p>Loading..</p>;
       }
-      return <ItemDetail item= {item} />
+      return <ItemDetail item= {item}/>
       };
 
       export default ItemDetailConteiner;

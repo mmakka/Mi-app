@@ -1,9 +1,14 @@
+import { Link } from "react-router-dom";
+import "./button.css"
+
+
 const Item = ({ producto }) => {
     return (
-      <div className="card col-3 m-2">
-        <img src={producto.img} className="img-fluid" alt="Producto" />
-        <li>{producto.nombre}</li>
-        <button className="button">Ver detalle</button>
+      <div className="card col-4 m-2">
+        <img src={producto.img} className="img-fluid p-4" alt="Producto" />
+        <h3 className="text-center m-2">{producto.nombre}</h3>
+        <p className="text-center m-2">${producto.precio}</p>
+       <button className="button mt-2 "> <Link to ={`/item/${producto.id}`}>Ver detalle</Link></button>
       </div>
     );
   };

@@ -1,21 +1,13 @@
 
 import { Layout } from "../Layout";
-import{useParams} from "react-router-dom";
-import {Items} from "../mocks/Items.mocks";
-import Item from "../../components/Item";
+import ItemsListContainer from "../ItemsListContainer";
 
 
 
 const CategoryView = ()=>{
-const {categoria} = useParams();
-const categorias = Items.filter((producto ) => producto.categoria === categoria);
-
-    return( <Layout>
-        {categorias.map ((producto)=>(
-            <Item producto = {producto} />
-        ))}
+    return(  <Layout>
+             <ItemsListContainer/>
             </Layout>
     );
 }
 export default CategoryView;
-

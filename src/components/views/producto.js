@@ -1,12 +1,9 @@
-import { Navbar } from "react-bootstrap";
-import NavBar from "../Navbar/NavBar";
+import ItemDetailConteiner from "../ItemDetailContainer";
 import { Layout } from "../Layout";
-
-
 
 const ItemView = ()=>{
     return( <Layout>
-        <h1>Producto</h1>
+        <ItemDetailConteiner/>
         </Layout>);
 };
 
