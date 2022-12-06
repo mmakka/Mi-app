@@ -3,12 +3,9 @@ import{Items} from "./mocks/Items.mocks"
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 
-
-  
   const ItemsListContainer = () => {
   const {category} = useParams();
   const [productos, setProductos] = useState([]);
- 
 
   useEffect(() => {
     new Promise((resolve) =>

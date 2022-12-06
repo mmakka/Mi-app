@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import "./button.css"
+import "./button.css";
+
 
 
 const Item = ({ producto }) => {
