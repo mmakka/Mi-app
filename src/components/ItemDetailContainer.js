@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import{Items} from "./mocks/Items.mocks";
 import { useParams } from "react-router-dom";
+import ItemCounts from "./ItemCount";
 
 const ItemDetailConteiner = () => {
     const [item, setItem]= useState(null);
