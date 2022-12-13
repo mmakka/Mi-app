@@ -3,9 +3,10 @@ import "./button.css";
 
 
 
+
 const Item = ({ producto }) => {
     return (
-      <div className="card col-4 m-2">
+      <div className="card col-2 m-2 p-5">
         <img src={producto.img} className="img-fluid p-4" alt="Producto" />
         <h3 className="text-center m-2">{producto.nombre}</h3>
         <p className="text-center m-2">${producto.precio}</p>

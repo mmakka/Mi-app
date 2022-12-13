@@ -1,30 +1,54 @@
 import { useState } from "react";
 
-const ItemCounts = () => {
+const ItemCount = ({count, sumarRestar}) => {
+  return(
+    <div>
+     <button onClick={()=> sumarRestar ("minus")}>-</button>
+     <span id = "counter"> {count} </span>
+     <button onClick={()=> sumarRestar ("plus")}>+</button>
+    </div>
+  )
+}
+
+export default ItemCount;
+
+
+
+
+
+
+
+
+
+
+/* const ItemCounts = () => {
   const [count, setCount] = useState(0);
-  const stockMax = 5;
+ ;
+
   const [classActive1, setClassActive1] = useState("active");
   const [classActive2, setClassActive2] = useState("");
 
   const add = () => {
-    if (count === stockMax - 1) {
+    if (count == stockMax - 1) {
       setClassActive1("");
+
       setClassActive2("active");
       setCount(count + 1);
-    } else if (count >= stockMax) {
-      Swal.fire("Sin Stock", "Pronto tendremos mas.!", "error");
+    } 
+    else if (count >= stockMax) {
+      alert("Sin Stock");
     } else {
-      setCount(cant + 1);
+      setCount(count + 1);
     }
   };
 
   const remove = () => {
-    if (count === stockMax) {
+    if (count == stockMax) {
       setClassActive1("active");
       setClassActive2("");
       setCount(count - 1);
     } else if (count <= 0) {
-      Swal.fire("Carrito Vacio", "Vamos a comprar.?", "warning");
+      alert("Carrito Vacio");
     } else {
       setCount(count - 1);
     }
@@ -71,6 +95,5 @@ const ItemCounts = () => {
       </div>
     </div>
   );
-};
+}; */
 
-export default ItemCounts;

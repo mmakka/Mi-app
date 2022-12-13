@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import{Items} from "./mocks/Items.mocks";
 import { useParams } from "react-router-dom";
-import ItemCounts from "./ItemCount";
+
 
 const ItemDetailConteiner = () => {
     const [item, setItem]= useState(null);
@@ -12,7 +12,7 @@ const ItemDetailConteiner = () => {
         new Promise((resolve) =>
 
         setTimeout(() =>{
-        const itemFilter= Items.find((item)=>item.id == id);
+        const itemFilter= Items.find((item)=>item.id === id);
          resolve(itemFilter);
         },1000))
         
@@ -20,7 +20,7 @@ const ItemDetailConteiner = () => {
       }, [id]);
 
       if (!item) {
-        return<p>Loading..</p>;
+        return<p className="loading text-center">Loading..</p>;
       }
       return <ItemDetail item= {item}/>
       };
