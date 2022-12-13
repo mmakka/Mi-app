@@ -19,44 +19,40 @@ const ItemDetail = ({item}) =>{
     else setStockNow (stockNow - count);
   }
 
-function checkout (){
+  function checkout (){
   navigate("/cart");
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   return(
     <div className="d-flex col-10 justify-content-center">
+
       <div className="card d-flex col-3 justify-center p-5">
           <h2>{item.nombre}</h2>
           <img src={item.img} className="img-fluid" alt="Producto"/>
+          </div>
+          <div>
+          <h3>{item.precio}</h3>
           <p>{item.descripcion}</p>
-          <p>Stock :5 u</p>
-          <p>{item.precio}</p>
-          <ItemCount stock={5}/>
-          <button>Comprar</button>
+          <strong> ${item.precio}</strong>
+          {stockNow > 0 && (
+            <p>Stock :{stockNow}</p>
+          )}
+          </div>
+          <div className="contandores">
+            {stockNow > 0 ? (
+              <ItemCount count = {count} sumarRestar = {sumarRestar}/>
+            ): (
+              <p>Sin stock</p>
+            )}
+
+            <div>
+              <buttton disabled = {stockNow === 0} onClick= {sumarRestar}>agregar al carrito </buttton>
+              <button onClick={checkout}>Finalizar Compra</button>
+              </div>
           </div>
           </div>
+  
   );
 
 };

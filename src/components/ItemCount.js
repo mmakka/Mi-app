@@ -1,4 +1,6 @@
 import { useState } from "react";
+import ItemDetail from "./ItemDetail";
+
 
 const ItemCount = ({count, sumarRestar}) => {
   return(
