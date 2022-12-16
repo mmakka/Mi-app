@@ -1,15 +1,29 @@
+import { Button } from "bootstrap";
 import { useState } from "react";
 import ItemDetail from "./ItemDetail";
 
 
-const ItemCount = ({count, sumarRestar}) => {
-  return(
-    <div>
-     <button onClick={()=> sumarRestar ("minus")}>-</button>
-     <span id = "counter"> {count} </span>
-     <button onClick={()=> sumarRestar ("plus")}>+</button>
-    </div>
-  )
+const ItemCount = ({stock}) => {
+  const [count, setCount] = useState(1);
+
+  const decrease =() => {
+    setCount (count - 1);
+  }
+
+  const increase =()=>{
+    setCount (count + 1);
+  }
+
+
+return(
+  <div className="counter">
+    <button disabled= {count <= 1} onClick={decrease} >-</button>
+    <p> stock :{stock}</p>
+    <p>{count}</p>
+    <button disabled={count <= stock} onClick={increase}>+</button>
+  </div>
+)
+
 }
 
 export default ItemCount;
@@ -23,8 +37,25 @@ export default ItemCount;
 
 
 
-/* const ItemCounts = () => {
-  const [count, setCount] = useState(0);
+/* 
+
+
+
+const ItemCount = ({count, sumarRestar}) => {
+  return(
+    <div>
+     <button onClick={()=> sumarRestar ("minus")}>-</button>
+     <span id = "counter"> {count} </span>
+     <button onClick={()=> sumarRestar ("plus")}>+</button>
+    </div>
+  )
+}
+
+
+
+
+
+
  ;
 
   const [classActive1, setClassActive1] = useState("active");

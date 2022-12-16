@@ -1,10 +1,49 @@
 import ItemCount from "./ItemCount";
+
 import { useState } from "react";
 import { useNavigate} from "react-router-dom";
+import { isAccordionItemSelected } from "react-bootstrap/esm/AccordionContext";
 
 
 const ItemDetail = ({item}) =>{
-  const navigate = useNavigate();
+  const onAdd = (quantity) =>{
+    console.log (`compraste ${quantity}unidades`);
+  }
+  return(
+    <div className=" card col-4 ">
+      <div className="detail">
+      <img src={item.img} className="img-fluid" alt="Producto"/>
+      <div className="content">
+        <h2>{item.name}</h2>
+        <ItemCount initial ={3} stock={item.stock} onAdd={onAdd}/>
+      </div>
+      </div>
+    </div>
+  )
+  
+
+
+
+
+
+}
+export default ItemDetail;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* const navigate = useNavigate();
   const [count,setCount] = useState(1);
   const [stockNow, setStockNow] = useState(item.stock);
   const MaximoStock = stockNow;
@@ -55,22 +94,4 @@ const ItemDetail = ({item}) =>{
   
   );
 
-};
-
-export default ItemDetail;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+}; */
