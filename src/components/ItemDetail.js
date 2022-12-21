@@ -1,34 +1,60 @@
 import ItemCount from "./ItemCount";
+import "./itemDetail.css";
+import { useContext,useState,useEffect } from "react";
+import { cartContext } from "../context/cartContext";
+import { Link } from "react-router-dom";
 
-import { useState } from "react";
-import { useNavigate} from "react-router-dom";
-import { isAccordionItemSelected } from "react-bootstrap/esm/AccordionContext";
 
 
-const ItemDetail = ({item}) =>{
-  const onAdd = (quantity) =>{
+ const ItemDetail = ({item}) =>{
+  const {AddProduct} = useContext(cartContext);
+  const [count, setCount] = useState(parseInt(initial));
+  const [newStock, setNewStock] = useState(stock -1);
+
+    const onAdd = (quantity,initial) =>{
     console.log (`compraste ${quantity}unidades`);
+    AddProduct(item,quantity)
+
+   const decrease =() => {
+     setCount (count - 1);
+     setNewStock(newStock + 1)
+   }
+ 
+    const increase =()=>{
+     if(count < stock){
+       setCount(count + 1);
+       setNewStock(newStock -1)
+     } else if(count > stock){
+       alert("no hay suficiente ")
+     }
+   }
+     useEffect(()=>{
+       setCount(parseInt(initial))
+     }, [initial]);
   }
+
+
   return(
-    <div className=" card col-4 ">
-      <div className="detail">
+    <div className="container col-10">
+      <div className=" card col-4 detail">
       <img src={item.img} className="img-fluid" alt="Producto"/>
-      <div className="content">
-        <h2>{item.name}</h2>
-        <ItemCount initial ={3} stock={item.stock} onAdd={onAdd}/>
+        <h1>{item.nombre}</h1>
+        <h3>{item.descripcion}</h3>
+        <h3>${item.precio}</h3>
+        </div>
+        <div className="count col-3">
+       <ItemCount initial= {1} count ={count} onAdd={onAdd} stock={item.stock} increase={increase} decrease={decrease}/>
+       <div>
+       <button onClick={()=>onAdd(count)} ><Link to ={`/Cart`}>Agregar al carrito</Link></button>
+        <button>Finalizar compra</button>
+       </div>
+        </div>
       </div>
-      </div>
-    </div>
   )
-  
-
-
-
-
-
 }
 export default ItemDetail;
 
+/* <ItemCount initial ={1} stock={item.stock} onAdd={onAdd}/> */
 
 
 
@@ -43,55 +69,12 @@ export default ItemDetail;
 
 
 
- /* const navigate = useNavigate();
-  const [count,setCount] = useState(1);
-  const [stockNow, setStockNow] = useState(item.stock);
-  const MaximoStock = stockNow;
-
-  function sumarRestar(type){
-    if (type === "plus" && count < MaximoStock) setCount(count + 1);
-    if(type === "minus" && count > 1 ) setCount(count -1);
-  }
-
-  function Add (){
-    if( stockNow < count)alert ("No hay suficiente Stock");
-    else setStockNow (stockNow - count);
-  }
-
-  function checkout (){
-  navigate("/cart");
-}
 
 
-  return(
-    <div className="d-flex col-10 justify-content-center">
 
-      <div className="card d-flex col-3 justify-center p-5">
-          <h2>{item.nombre}</h2>
-          <img src={item.img} className="img-fluid" alt="Producto"/>
-          </div>
-          <div>
-          <h3>{item.precio}</h3>
-          <p>{item.descripcion}</p>
-          <strong> ${item.precio}</strong>
-          {stockNow > 0 && (
-            <p>Stock :{stockNow}</p>
-          )}
-          </div>
-          <div className="contandores">
-            {stockNow > 0 ? (
-              <ItemCount count = {count} sumarRestar = {sumarRestar}/>
-            ): (
-              <p>Sin stock</p>
-            )}
 
-            <div>
-              <buttton disabled = {stockNow === 0} onClick= {sumarRestar}>agregar al carrito </buttton>
-              <button onClick={checkout}>Finalizar Compra</button>
-              </div>
-          </div>
-          </div>
-  
-  );
 
-}; */
+
+
+
+ 

@@ -1,29 +1,21 @@
-import { Button } from "bootstrap";
-import { useState } from "react";
-import ItemDetail from "./ItemDetail";
 
+import { Link } from "react-router-dom";
+const ItemCount = ({count,newStock,stock,increase,decrease}) => {
 
-const ItemCount = ({stock}) => {
-  const [count, setCount] = useState(1);
-
-  const decrease =() => {
-    setCount (count - 1);
-  }
-
-  const increase =()=>{
-    setCount (count + 1);
-  }
 
 
 return(
+  <div className="count">
   <div className="counter">
-    <button disabled= {count <= 1} onClick={decrease} >-</button>
-    <p> stock :{stock}</p>
+   <h6 className="text-center">Stock disponible:{newStock}</h6>
+   <div>
+    <button disabled={count >= stock} onClick={()=> increase}>+</button>
     <p>{count}</p>
-    <button disabled={count <= stock} onClick={increase}>+</button>
+    <button disabled= {count === 1} onClick={decrease} >-</button>
+    </div>
+  </div>
   </div>
 )
-
 }
 
 export default ItemCount;
@@ -31,102 +23,10 @@ export default ItemCount;
 
 
 
+/*   <button onClick={()=>onAdd(count)} ><Link to ={`/Cart`}>Agregar al carrito</Link></button>
+    <button>Comprar</button>         */
 
 
 
 
-
-
-/* 
-
-
-
-const ItemCount = ({count, sumarRestar}) => {
-  return(
-    <div>
-     <button onClick={()=> sumarRestar ("minus")}>-</button>
-     <span id = "counter"> {count} </span>
-     <button onClick={()=> sumarRestar ("plus")}>+</button>
-    </div>
-  )
-}
-
-
-
-
-
-
- ;
-
-  const [classActive1, setClassActive1] = useState("active");
-  const [classActive2, setClassActive2] = useState("");
-
-  const add = () => {
-    if (count == stockMax - 1) {
-      setClassActive1("");
-
-      setClassActive2("active");
-      setCount(count + 1);
-    } 
-    else if (count >= stockMax) {
-      alert("Sin Stock");
-    } else {
-      setCount(count + 1);
-    }
-  };
-
-  const remove = () => {
-    if (count == stockMax) {
-      setClassActive1("active");
-      setClassActive2("");
-      setCount(count - 1);
-    } else if (count <= 0) {
-      alert("Carrito Vacio");
-    } else {
-      setCount(count - 1);
-    }
-  };
-
-  return (
-    <div className="cant-conteiner">
-      <div className="cant-selector">
-        <p className="cant-number">{count}</p>
-        <div className="cant-button_contain">
-          <button
-            className="cant-button"
-            onClick={() => {
-              add();
-            }}
-          >
-            <ion-icon name="caret-up-outline"></ion-icon>
-          </button>
-          <button
-            className="cant-button"
-            onClick={() => {
-              remove();
-            }}
-          >
-            <ion-icon name="caret-down-outline"></ion-icon>
-          </button>
-        </div>
-        <button
-          className={`button-add ${classActive1}`}
-          onClick={() => {
-            add();
-          }}
-        >
-          <ion-icon name="cart-outline"></ion-icon>
-        </button>
-        <button
-          className={`button-add-disabled ${classActive2}`}
-          onClick={() => {
-            add();
-          }}
-        >
-          <ion-icon name="cart"></ion-icon>
-        </button>
-      </div>
-    </div>
-  );
-}; */
 

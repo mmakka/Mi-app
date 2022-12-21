@@ -24,7 +24,7 @@ import { useParams } from "react-router-dom";
   }, [category]);
     
     if (productos.length === 0) {
-      return <p>Loading...</p>;
+      return <p className="text-center">Loading...</p>;
     } 
     return (
       <div className="card">
