@@ -1,9 +1,25 @@
+import { useState, ussEffect } from "react";
 
-import { Link } from "react-router-dom";
-const ItemCount = ({count,newStock,stock,increase,decrease}) => {
+const ItemCount = ({}) => {
+  const [count, setCount] = useState(parseInt(initial));
+  const [newStock, setNewStock] = useState(stock -1);
 
-
-
+  const decrease =() => {
+    setCount (count - 1);
+    setNewStock(newStock + 1)
+  }
+   const increase =()=>{
+    if(count < stock){
+      setCount(count + 1);
+      setNewStock(newStock -1)
+    } else if(count > stock){
+      alert("no hay suficiente ")
+    }
+  }
+    ussEffect(()=>{
+      setCount(parseInt(initial))
+    }, [initial]);
+  
 return(
   <div className="count">
   <div className="counter">
