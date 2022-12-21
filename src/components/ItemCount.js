@@ -1,6 +1,7 @@
-import { useState, ussEffect } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const ItemCount = ({}) => {
+const ItemCount = ({stock,initial,onAdd}) => {
   const [count, setCount] = useState(parseInt(initial));
   const [newStock, setNewStock] = useState(stock -1);
 
@@ -16,23 +17,27 @@ const ItemCount = ({}) => {
       alert("no hay suficiente ")
     }
   }
-    ussEffect(()=>{
+    useEffect(()=>{
       setCount(parseInt(initial))
     }, [initial]);
-  
+
 return(
   <div className="count">
   <div className="counter">
    <h6 className="text-center">Stock disponible:{newStock}</h6>
    <div>
-    <button disabled={count >= stock} onClick={()=> increase}>+</button>
+    <button onClick={increase}>+</button>
     <p>{count}</p>
-    <button disabled= {count === 1} onClick={decrease} >-</button>
+    <button disabled= {count === 1} onClick={decrease}>-</button>
     </div>
+    <div>
+       <button onClick={()=> onAdd(count)}>Agregar al carrito</button>
+       <button><Link to ={`/Cart`}>Finalizar Compra</Link></button>
   </div>
   </div>
-)
-}
+  </div>
+)}
+
 
 export default ItemCount;
 

@@ -2,14 +2,15 @@ import ItemCount from "./ItemCount";
 import "./itemDetail.css";
 import { useContext } from "react";
 import { cartContext } from "../context/cartContext";
-import { Link } from "react-router-dom";
+
 
  const ItemDetail = ({item}) =>{
   const {AddProduct} = useContext(cartContext);
  
     const onAdd = (quantity,initial) =>{
     console.log (`compraste ${quantity}unidades`);
-    AddProduct(item,quantity)};
+    
+    AddProduct(quantity)};
 
   return(
     <div className="container col-10">
@@ -21,12 +22,8 @@ import { Link } from "react-router-dom";
         </div>
         <div className="count col-3">
         <ItemCount initial ={1} stock={item.stock} onAdd={onAdd}/>
-       <div>
-       <button onClick={()=>onAdd(count)} ><Link to ={`/Cart`}>Agregar al carrito</Link></button>
-        <button>Finalizar compra</button>
        </div>
         </div>
-      </div>
   )
 }
 export default ItemDetail;
