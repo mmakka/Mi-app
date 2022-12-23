@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {RouterProvider} from "react-router-dom";
-import {CartContextProvider } from './context/cartContext';
+import {CartContextProvider } from './context/CartContext';
 import{router} from "./router";
 
 
