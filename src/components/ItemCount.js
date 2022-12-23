@@ -1,51 +1,47 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
-const ItemCount = ({stock,initial,onAdd}) => {
-  const [count, setCount] = useState(parseInt(initial));
-  const [newStock, setNewStock] = useState(stock -1);
+export const ItemCount = ({initial,stock, onAdd}) => {
+  const [count,setCount]= useState(initial);
 
-  const decrease =() => {
-    setCount (count - 1);
-    setNewStock(newStock + 1)
+  const increase =() =>{
+    setCount(count +1);
   }
-   const increase =()=>{
-    if(count < stock){
-      setCount(count + 1);
-      setNewStock(newStock -1)
-    } else if(count > stock){
-      alert("no hay suficiente ")
-    }
+
+  const decrease = () =>{
+    setCount(count -1);
   }
-    useEffect(()=>{
-      setCount(parseInt(initial))
-    }, [initial]);
 
-return(
-  <div className="count">
-  <div className="counter">
-   <h6 className="text-center">Stock disponible:{newStock}</h6>
-   <div>
-    <button onClick={increase}>+</button>
-    <p>{count}</p>
-    <button disabled= {count === 1} onClick={decrease}>-</button>
-    </div>
-    <div>
-       <button onClick={()=> onAdd(count)}>Agregar al carrito</button>
-       <button><Link to ={`/Cart`}>Finalizar Compra</Link></button>
-  </div>
-  </div>
-  </div>
-)}
-
+  return (
+    <div className="flex mt-10 w-4/5 bg-gray-200 rounded">
+      <button disabled ={count <= 1}
+        onClick={decrease}
+        className="flex justify-center items-center p-2 w-2/5 h-full bg-gray-800 text-black"
+      >
+        -
+      </button>
+      <span
+        className="flex flex-1 justify-center items-center mx-4 font-bold"
+      >
+        {count}
+      </span>
+      <button disabled = {count >= stock}
+        onClick={increase}
+        className="flex justify-center items-center p-2 w-2/5 h-full bg-gray-800 text-black"
+      >
+        +
+      </button>
+      <button disabled ={stock <=0} onClick={()=> onAdd(count)}>Agregar al carrito</button>
+     </div>
+  );
+};
 
 export default ItemCount;
 
 
 
 
-/*   <button onClick={()=>onAdd(count)} ><Link to ={`/Cart`}>Agregar al carrito</Link></button>
-    <button>Comprar</button>         */
+
+    
 
 
 

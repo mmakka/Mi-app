@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import "./button.css";
 
-
-
-
 const Item = ({ producto }) => {
     return (
       <div className="card col-3 m-2 p-5">

@@ -1,6 +1,6 @@
  import "./NavBar.css";
-
-function CartWidget() {
+ 
+ function CartWidget() {
     return(
         <div className="container">
             <div className="active-icon">
@@ -11,6 +11,12 @@ function CartWidget() {
         </div>
         </div>
     );
-};
+}; 
+
+
 
 export default CartWidget;
+
+
+
+
