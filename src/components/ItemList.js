@@ -1,14 +1,12 @@
-import Item from "./Item";
-import "./ItemList.css"
+import { Item } from "./Item";
 
-const ItemList = ({ productos }) => {
-  return (
-    <ul className="d-flex justify-content-around flex-wrap m-2 lista-itemsList">
-      {productos.map((producto) => (
-        <Item key= {producto.id}producto={producto}/>
-      ))}
+
+export const ItemList = ({ products }) => {
+return (
+    <ul className="cardProductContainer ">
+    {products.map((product) => (
+        <Item product={product} />
+    ))}
     </ul>
-  );
+);
 };
-
-export default ItemList;

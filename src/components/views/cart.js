@@ -4,16 +4,16 @@ import ItemCart from "../ItemCart";
 const CartView = ()=>{
 const {cart, totalPrice} = useCartContext();   
 if(cart.leght ===0){
-    
     return(
         <div>
-            <p>No hay nada</p>
+            <p>Todavia no hay nada</p>
         </div>
     )
 }
- (
-    <div>
+return (
+    <div className="row col-6">
      {cart.map(product =><ItemCart key ={product.id} item ={product} />)}
+     <p> Total :{totalPrice()}</p>
     </div>
 )}
 

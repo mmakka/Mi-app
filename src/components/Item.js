@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
 import "./button.css";
 
-const Item = ({ producto }) => {
+ export const Item = ({ products }) => {
     return (
       <div className="card col-3 m-2 p-5">
-        <img src={producto.img} className="img-fluid p-4" alt="Producto" />
-        <h3 className="text-center m-2">{producto.nombre}</h3>
-        <p className="text-center m-2">${producto.precio}</p>
-        <p> Stock Disponile :{producto.stock}</p>
-       <button className="button mt-2 "> <Link to ={`/item/${producto.id}`}>Ver detalle</Link></button>
+        <img src={products.img} className="img-fluid p-4" alt="Producto" />
+        <h3 className="text-center m-2">{products.nombre}</h3>
+        <p className="text-center m-2">${products.precio}</p>
+        <p> Stock Disponile :{products.stock}</p>
+       <button className="button mt-2 "> <Link to ={`/item/${products.id}`}>Ver detalle</Link></button>
       </div>
     );
   };
   
-  export default Item;

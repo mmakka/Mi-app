@@ -1,11 +1,12 @@
 
 import { Layout } from "../Layout";
-import ItemsListContainer from "../ItemsListContainer";
+import {ItemsListContainer} from "../ItemsListContainer";
 
-const CategoryView = ()=>{
+ const CategoryView = ()=>{
     return(  <Layout>
              <ItemsListContainer/>
             </Layout>
     );
 }
 export default CategoryView;
+

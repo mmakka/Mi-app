@@ -1,38 +1,41 @@
-import { useState,useEffect } from "react";
-import{Items} from "./mocks/Items.mocks"
-import ItemList from "./ItemList";
+
+import {ItemList}from "./ItemList";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-  const ItemsListContainer = () => {
-  const {category} = useParams();
-  const [productos, setProductos] = useState([]);
-
-  useEffect(() => {
-    new Promise((resolve) =>
-    setTimeout(() => {
-      resolve(Items);
-    }, 2000)
-    ).then((data) =>{
-      if (category){
-        const categorias =data.filter((producto ) => producto.categoria === category) ;
-        setProductos(categorias)
-      }else{
-        setProductos(data)
-      }
-    });
-
-  }, [category]);
-    
-    if (productos.length === 0) {
-      return <p className="text-center">Loading...</p>;
-    } 
-    return (
-      <div className="card">
-        <ItemList productos={productos} />
-      </div>
-    );
-  };
+import {getFirestore, collection, getDocs , query,where} from "firebase/firestore";
 
 
-export default ItemsListContainer;
+export const ItemsListContainer = () => {
+const [products, setProducts] = useState([]);
+
+const {category } = useParams();
+
+useEffect ( ()=> {
+  const db = getFirestore();
+  const itemCollection = collection (db , "items");
+  if (category) {
+    const queryFilter = query(itemCollection, where("categoria", "==", category))
+      getDocs(queryFilter)
+        .then( res => setProducts(res.docs.map(items => ({ id: items.id, ...items.data() }))))
+  } else {
+    getDocs(itemCollection)
+      .then(res => setProducts(res.docs.map(items => ({id: items.id, ...items.data() }))))
+  }
+}, [category])
+
+
+if (products.lenght === 0) {
+    return ( <div className="contenedorCarga">
+    <div className="carga"></div>
+    </div>);
+}
+
+return (
+    <div className="cardProductContainer">
+      <ItemList products={products} />
+    </div>
+);
+};
+
+
 

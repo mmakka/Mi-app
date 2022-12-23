@@ -1,28 +1,29 @@
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import{Items} from "./mocks/Items.mocks";
 import { useParams } from "react-router-dom";
+import {getFirestore, doc, getDoc ,} from "firebase/firestore";
+
+const ItemDetailContainer = () => {
+  const [item, setItem] = useState(null);
+  const {id} = useParams()
+
+useEffect(() => {
+  const db = getFirestore()
+  const itemRef = doc(db, "items", id)
+  getDoc(itemRef)
+      .then(res => setItem({ id: res.id, ...res.data() }))
+}, [id])
 
 
-const ItemDetailConteiner = () => {
-    const [item, setItem]= useState(null);
-    const {id} = useParams();
+if (!item) {
+  return ( 
+      <div className="contenedorCarga">
+          <div className="carga"></div>
+      </div>
+  );
+}
 
-    useEffect(() => {
-        new Promise((resolve) =>
+return <ItemDetail item={item} />
+};
 
-        setTimeout(() =>{
-        const itemFilter= Items.find((item)=>item.id === id);
-         resolve(itemFilter);
-        },1000))
-        
-        .then((data) => setItem(data));
-      }, [id]);
-
-      if (!item) {
-        return<p className="loading text-center">Loading..</p>;
-      }
-      return <ItemDetail item= {item}/>
-      };
-
-      export default ItemDetailConteiner;
+ export default ItemDetailContainer;
