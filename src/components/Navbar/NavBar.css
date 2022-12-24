@@ -63,8 +63,6 @@
 .button-cart{
   display: flex;
   align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
   color: #9799A6;
   border-radius: 5px;
   border: 1px solid #9799A6;

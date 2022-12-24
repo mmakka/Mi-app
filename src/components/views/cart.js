@@ -3,22 +3,24 @@ import ItemCart from "../ItemCart";
 import { Layout } from "../Layout";
 
 const CartView = ()=>{
-const {cart, totalPrice} = useCartContext();   
-if(cart.leght ===0){
+const {cart, totalPrice} = useCartContext();  
+
+    if (cart.lenght === 0){
     return(
-        <div>
-            <p>Todavia no hay nada</p>
-        </div>
-    )
+        <>
+            <p>El carrito esta vacio</p>
+        </>
+    );
 }
+
 return (
     <Layout>
         <div className="d-flex justify-center">
-    <div className=" col-6">
-     {cart.map(product =><ItemCart key ={product.id} item ={product} />)}
-     <p> Total :{totalPrice()}</p>
-    </div>
-    </div>
+            <div className=" col-6">
+                {cart.map(product =><ItemCart key ={product.id} item ={product} />)}
+                <h5 className="text-center">Total :${totalPrice()}</h5>
+            </div>
+        </div>
     </Layout>
 )}
 

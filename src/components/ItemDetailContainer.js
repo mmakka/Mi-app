@@ -14,7 +14,6 @@ useEffect(() => {
       .then(res => setItem({ id: res.id, ...res.data() }))
 }, [id])
 
-
 if (!item) {
   return ( 
       <div className="contenedorCarga">

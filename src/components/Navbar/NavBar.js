@@ -13,7 +13,6 @@ function NavBar() {
                     <li className="li"><Link to="/Category/sandalias" >Sandalias</Link></li>
                     <li className="li"><CartWidget/></li>
                 </ul>
-                <h1 className="titulo-principal text-center">Alma Store</h1>
             </nav>
         </div>
     ); 

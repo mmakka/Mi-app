@@ -2,9 +2,9 @@
 import { Layout } from "../Layout";
 import {ItemsListContainer} from "../ItemsListContainer";
 
- const CategoryView = ()=>{
+const CategoryView = ()=>{
     return(  <Layout>
-             <ItemsListContainer/>
+                <ItemsListContainer/>
             </Layout>
     );
 }

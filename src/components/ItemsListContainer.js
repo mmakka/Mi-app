@@ -13,26 +13,28 @@ const {category } = useParams();
 useEffect ( ()=> {
   const db = getFirestore();
   const itemCollection = collection (db , "productos");
-  if (category) {
-    const queryFilter = query(itemCollection, where("categoria", "==", category))
+    if (category) {
+      const queryFilter = query(itemCollection, where("categoria", "==", category))
       getDocs(queryFilter)
         .then( res => setProducts(res.docs.map(items => ({ id: items.id, ...items.data() }))))
   } else {
-    getDocs(itemCollection)
+      getDocs(itemCollection)
       .then(res => setProducts(res.docs.map(items => ({id: items.id, ...items.data() }))))
   }
 }, [category])
 
 
 if (products.lenght === 0) {
-    return ( <div className="contenedorCarga">
-    <div className="carga"></div>
+    return ( <div className="contenedor">
+    <div>Loading</div>
     </div>);
 }
 
 return (
-    <div className="cardProductContainer">
+  <div className=" space-around flex-wrap">
+    <ul className="card">
       <ItemList products={products} />
+    </ul>
     </div>
 );
 };

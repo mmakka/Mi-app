@@ -3,8 +3,8 @@ import { Layout } from "../Layout";
 
 const ItemView = ()=>{
     return( <Layout>
-        <ItemDetailConteiner/>
-        </Layout>);
+                <ItemDetailConteiner/>
+            </Layout>);
 };
 
 export default ItemView;
