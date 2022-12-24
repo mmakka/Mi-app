@@ -12,7 +12,7 @@ export const ItemCount = ({initial,stock, onAdd}) => {
   }
 
   return (
-    <div className="flex mt-10 w-4/5 bg-gray-200 rounded">
+    <div className="flex mt-10 w-4/5 bg-gray-200 rounded d-flex ">
       <button disabled ={count <= 1}
         onClick={decrease}
         className="flex justify-center items-center p-2 w-2/5 h-full bg-gray-800 text-black"

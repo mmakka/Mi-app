@@ -4,8 +4,8 @@ import { useCartContext } from "../context/CartContext";
 const ItemCart = ({item}) => {
  const {removeProduct} = useCartContext();
     return (
-                 <div>
-                    <div>
+                 <div className="card col-8 m-2 p-5 bg-light d-flex">
+                    <div className="justify-center">
                         <p>Nombre :{item.nombre}</p>
                         <p>Cantidad : {item.quantity}</p>
                         <p>Precio : {item.precio}</p>

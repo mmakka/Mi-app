@@ -48,7 +48,7 @@ export const Items = [
     {
       id: "6",
       nombre: "Zapatos Escarpin",
-      descripcion: "zapatos",
+      descripcion: "Zapatos",
       stock: 5,
       categoria: "zapatos",
       img : process.env.PUBLIC_URL + "/images/img-6.jpg",
@@ -81,4 +81,41 @@ export const Items = [
       img : process.env.PUBLIC_URL + "/images/img-9.jpg",
       precio : 400.55,
     },
-  ];
+    {
+      id: "10",
+      nombre: "Sandalias Clock",
+      descripcion: "Altura puntera35 mm Altura Talón50 mm ColorNegro MaterialCuero.Las nuevas Clock tienen capellada con efecto puffed y formato tipo slides. Son súper cómodas.",
+      stock: 5,
+      categoria: "sandalias",
+      img : process.env.PUBLIC_URL + "/images/img-10.jpg",
+      precio : 400.55,
+    },
+    {
+      id: "9",
+      nombre: "Sandalias Clock",
+      descripcion: "Altura puntera35 mm Altura Talón50 mm ColorNegro MaterialCuero.Las nuevas Clock tienen capellada con efecto puffed y formato tipo slides. Son súper cómodas.",
+      stock: 5,
+      categoria: "sandalias",
+      img : process.env.PUBLIC_URL + "/images/img-9.jpg",
+      precio : 400.55,
+    },
+    {
+      id: "9",
+      nombre: "Sandalias Clock",
+      descripcion: "Altura puntera35 mm Altura Talón50 mm ColorNegro MaterialCuero.Las nuevas Clock tienen capellada con efecto puffed y formato tipo slides. Son súper cómodas.",
+      stock: 5,
+      categoria: "sandalias",
+      img : process.env.PUBLIC_URL + "/images/img-9.jpg",
+      precio : 400.55,
+    },
+
+    {
+      id: "9",
+      nombre: "Sandalias Clock",
+      descripcion: "Altura puntera35 mm Altura Talón50 mm ColorNegro MaterialCuero.Las nuevas Clock tienen capellada con efecto puffed y formato tipo slides. Son súper cómodas.",
+      stock: 5,
+      categoria: "sandalias",
+      img : process.env.PUBLIC_URL + "/images/img-9.jpg",
+      precio : 400.55,
+    }
+]
