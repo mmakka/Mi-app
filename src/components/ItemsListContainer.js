@@ -12,7 +12,7 @@ const {category } = useParams();
 
 useEffect ( ()=> {
   const db = getFirestore();
-  const itemCollection = collection (db , "items");
+  const itemCollection = collection (db , "productos");
   if (category) {
     const queryFilter = query(itemCollection, where("categoria", "==", category))
       getDocs(queryFilter)
