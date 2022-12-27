@@ -50,6 +50,6 @@ return(
   {children}
 </CartContext.Provider>
 )
-}
+};
 
-  export default CartContextProvider;
+export default CartContextProvider;

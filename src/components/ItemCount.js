@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 export const ItemCount = ({initial,stock, onAdd}) => {
-  const [count,setCount]= useState(initial);
+    const [count,setCount]= useState(initial);
 
-  const increase =() =>{
+const increase =() =>{
     setCount(count +1);
-  }
+}
 
   const decrease = () =>{
     setCount(count -1);
@@ -20,7 +20,7 @@ export const ItemCount = ({initial,stock, onAdd}) => {
         -
       </button>
       <span
-        className="flex flex-1 justify-center items-center mx-4 font-bold"
+        className="flex flex-1 justify-center items-center mx-4 font-bold m-2"
       >
         {count}
       </span>
@@ -30,8 +30,8 @@ export const ItemCount = ({initial,stock, onAdd}) => {
       >
         +
       </button>
-      <button disabled ={stock <=0} onClick={()=> onAdd(count)}>Agregar al carrito</button>
-     </div>
+      <button className="m-2" disabled ={stock <=0} onClick={()=> onAdd(count)}>Agregar al carrito</button>
+    </div>
   );
 };
 
